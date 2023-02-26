@@ -57,7 +57,7 @@ class LocationItem extends HiveObject with EquatableMixin {
       'name': name,
       'innerRadius': innerRadius,
       'outerRadius': outerRadius,
-      'points': point.toMap(),
+      'point': point.toMap(),
     };
   }
 }
