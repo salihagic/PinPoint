@@ -4,12 +4,10 @@ import 'package:pinpoint/data/initializers/initializer.dart';
 import 'package:pinpoint/data/repositories/locations_repository.dart';
 import 'package:pinpoint/domain/entities/location_item.dart';
 import 'package:pinpoint/domain/entities/location_point.dart';
-import 'package:pinpoint/domain/enumerations/location_item_type.dart';
 
 void registerHiveAdapters() {
   Hive.registerAdapter(LocationPointAdapter());
   Hive.registerAdapter(LocationItemAdapter());
-  Hive.registerAdapter(LocationItemTypeAdapter());
 }
 
 final localDataSourceInitializer = FutureProvider(

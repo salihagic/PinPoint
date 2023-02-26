@@ -4,7 +4,6 @@ import 'package:pinpoint/common/optional.dart';
 import 'package:pinpoint/data/repositories/my_location_repository.dart';
 import 'package:pinpoint/domain/entities/location_item.dart';
 import 'package:pinpoint/domain/entities/location_point.dart';
-import 'package:pinpoint/domain/enumerations/location_item_type.dart';
 import 'package:pinpoint/domain/notifiers/locations_notifier/locations_state_notifier.dart';
 import 'package:pinpoint/domain/notifiers/my_location_notifier/my_location_state_notifier.dart';
 import 'package:pinpoint/domain/notifiers/proximity_notifier/proximity_state.dart';
@@ -35,19 +34,17 @@ class ProximityStateNotifier extends StateNotifier<PoximityState> {
   void determineProximity(
       Position myLocation, List<LocationItem> locationItems) async {
     for (final locationItem in locationItems) {
-      if (locationItem.type == LocationItemType.radius) {
-        _calculateRadiusLogic(myLocation, locationItem);
-      }
+      _calculateMovementLogic(myLocation, locationItem);
     }
   }
 
-  void _calculateRadiusLogic(
+  void _calculateMovementLogic(
       Position myLocation, LocationItem locationItem) async {
     // Check for entrance or dwell
     final isPointInsideTheInnerRadius =
         myLocationRepository.isPointInsideTheRadius(
       LocationPoint.fromPosition(myLocation),
-      locationItem.points.first,
+      locationItem.point,
       locationItem.innerRadius,
     );
     final isTheSameAsCurrent =
@@ -70,7 +67,7 @@ class ProximityStateNotifier extends StateNotifier<PoximityState> {
     final isPointInsideTheOuterRadius =
         myLocationRepository.isPointInsideTheRadius(
       LocationPoint.fromPosition(myLocation),
-      locationItem.points.first,
+      locationItem.point,
       locationItem.outerRadius,
     );
 

@@ -1,4 +1,5 @@
-import 'package:pinpoint/domain/entities/location_item.dart';
+import 'package:pinpoint/data/models/location_item_add_model.dart';
+import 'package:pinpoint/domain/entities/location_point.dart';
 
 enum LocationAddStateStatus {
   initial,
@@ -9,27 +10,30 @@ enum LocationAddStateStatus {
 
 class LocationAddState {
   final LocationAddStateStatus status;
-  final LocationItem item;
+  final LocationItemAddModel model;
+
+  LocationPoint? get lastPoint =>
+      model.points.isNotEmpty ? model.points.last : null;
 
   const LocationAddState({
     required this.status,
-    required this.item,
+    required this.model,
   });
 
   factory LocationAddState.initial() => LocationAddState(
         status: LocationAddStateStatus.initial,
-        item: LocationItem(
+        model: LocationItemAddModel(
           points: [],
         ),
       );
 
   LocationAddState copyWith({
     LocationAddStateStatus? status,
-    LocationItem? item,
+    LocationItemAddModel? model,
   }) {
     return LocationAddState(
       status: status ?? this.status,
-      item: item ?? this.item,
+      model: model ?? this.model,
     );
   }
 }
