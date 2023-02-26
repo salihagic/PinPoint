@@ -30,7 +30,6 @@ class MyLocationStateNotifier extends StateNotifier<MyLocationState> {
       myLocation: myLocation,
     );
 
-    // TODO: Uncomment this once finished
     if (await myLocationRepository.isEnabledAndAllowed()) {
       _myLocationStreamSubscription =
           myLocationRepository.getMyLocationStream().listen((myLocation) {

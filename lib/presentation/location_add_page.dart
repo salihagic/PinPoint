@@ -1,7 +1,8 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pinpoint/domain/entities/location_point.dart';
-import 'package:pinpoint/domain/enumerations/location_item_type.dart';
 import 'package:pinpoint/domain/notifiers/location_add_notifier/location_add_state.dart';
 import 'package:pinpoint/domain/notifiers/location_add_notifier/location_add_state_notifier.dart';
 import 'package:pinpoint/domain/notifiers/my_location_notifier/my_location_state_notifier.dart';
@@ -61,37 +62,36 @@ class LocationAddPage extends ConsumerWidget {
   }
 }
 
-class _Type extends ConsumerWidget {
-  const _Type({
-    super.key,
-  });
+// Possible implementation is radius or polygonal
+// class _Type extends ConsumerWidget {
+//   const _Type({
+//     super.key,
+//   });
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final item = ref.watch(locationAddStateNotifierProvider).item;
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final item = ref.watch(locationAddStateNotifierProvider).item;
 
-    return DropdownButton(
-      isExpanded: true,
-      items: LocationItemType.values
-          .map(
-            (type) => DropdownMenuItem(
-              value: type,
-              child: Text(type.name),
-            ),
-          )
-          .toList(),
-      value: item.type,
-      onChanged: (type) => ref
-          .read(locationAddStateNotifierProvider.notifier)
-          .update(item.copyWith(type: type)),
-    );
-  }
-}
+//     return DropdownButton(
+//       isExpanded: true,
+//       items: LocationItemType.values
+//           .map(
+//             (type) => DropdownMenuItem(
+//               value: type,
+//               child: Text(type.name),
+//             ),
+//           )
+//           .toList(),
+//       value: item.type,
+//       onChanged: (type) => ref
+//           .read(locationAddStateNotifierProvider.notifier)
+//           .update(item.copyWith(type: type)),
+//     );
+//   }
+// }
 
 class _Name extends ConsumerWidget {
-  const _Name({
-    super.key,
-  });
+  const _Name({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

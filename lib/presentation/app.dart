@@ -4,7 +4,6 @@ import 'package:pinpoint/data/initializers/local_data_source_initializer.dart';
 import 'package:pinpoint/presentation/dismiss_focus_overlay.dart';
 import 'package:pinpoint/presentation/location_permission_wrapper.dart';
 import 'package:pinpoint/presentation/locations_widget.dart';
-import 'package:pinpoint/presentation/my_position_info_wrapper.dart';
 
 final globalNavigatorKey = GlobalKey<NavigatorState>();
 

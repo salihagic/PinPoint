@@ -4,13 +4,13 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 part 'location_item_type.g.dart';
 
-@HiveType(typeId: HiveTypes.location_item_type)
+@HiveType(typeId: HiveTypes.locationItemType)
 enum LocationItemType {
   @HiveField(0)
   radius('Radius'),
 
   @HiveField(1)
-  poligonal('Poligonal');
+  polygonal('Polygonal');
 
   final String name;
 

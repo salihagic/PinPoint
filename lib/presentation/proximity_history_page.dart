@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pinpoint/domain/notifiers/proximity_notifier/proximity_notifier_state_notifier.dart';
@@ -86,7 +88,7 @@ class _CurrentProximityInfo extends StatelessWidget {
           ),
           Text(
             proximityInfo.status.name,
-            style: TextStyle(color: Colors.white, fontSize: 12),
+            style: const TextStyle(color: Colors.white, fontSize: 12),
             overflow: TextOverflow.ellipsis,
           ),
         ],

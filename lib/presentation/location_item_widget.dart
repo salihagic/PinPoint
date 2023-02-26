@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pinpoint/domain/entities/location_item.dart';
 import 'package:pinpoint/domain/notifiers/location_delete_notifier/location_delete_state_notifier.dart';
-import 'package:pinpoint/domain/notifiers/locations_notifier/locations_state_notifier.dart';
 
 class LocationItemWidget extends ConsumerWidget {
   final LocationItem locationItem;

@@ -16,7 +16,7 @@ class LocationItemTypeAdapter extends TypeAdapter<LocationItemType> {
       case 0:
         return LocationItemType.radius;
       case 1:
-        return LocationItemType.poligonal;
+        return LocationItemType.polygonal;
       default:
         return LocationItemType.radius;
     }
@@ -28,7 +28,7 @@ class LocationItemTypeAdapter extends TypeAdapter<LocationItemType> {
       case LocationItemType.radius:
         writer.writeByte(0);
         break;
-      case LocationItemType.poligonal:
+      case LocationItemType.polygonal:
         writer.writeByte(1);
         break;
     }
