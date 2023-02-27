@@ -66,6 +66,7 @@ class _Name extends ConsumerWidget {
 
     return TextInput(
       hintText: 'Name',
+      initialValue: model.name,
       onChanged: (text) => ref
           .read(locationAddStateNotifierProvider.notifier)
           .update(model.copyWith(name: text)),
@@ -85,6 +86,7 @@ class _InnerRadius extends ConsumerWidget {
     return TextInput(
       type: TextInputType.number,
       hintText: 'Inner radius (meters)',
+      initialValue: model.innerRadius?.toString(),
       onChanged: (text) => ref
           .read(locationAddStateNotifierProvider.notifier)
           .update(model.copyWith(innerRadius: double.tryParse(text))),
@@ -104,6 +106,7 @@ class _OuterRadius extends ConsumerWidget {
     return TextInput(
       type: TextInputType.number,
       hintText: 'Outer radius (meters)',
+      initialValue: model.outerRadius?.toString(),
       onChanged: (text) => ref
           .read(locationAddStateNotifierProvider.notifier)
           .update(model.copyWith(outerRadius: double.tryParse(text))),

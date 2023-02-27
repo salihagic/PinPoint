@@ -33,8 +33,8 @@ class LocationsRepositoryImpl implements LocationsRepository {
 
     final item = LocationItem(
       name: model.name,
-      innerRadius: model.innerRadius,
-      outerRadius: model.outerRadius,
+      innerRadius: model.innerRadius ?? 0.0,
+      outerRadius: model.outerRadius ?? 0.0,
       point: midPoint,
     );
 

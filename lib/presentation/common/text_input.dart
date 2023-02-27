@@ -4,12 +4,14 @@ class TextInput extends StatelessWidget {
   final TextInputType type;
   final int minLines;
   final String hintText;
+  final String? initialValue;
   final void Function(String text) onChanged;
 
   const TextInput({
     super.key,
     this.type = TextInputType.text,
     this.minLines = 1,
+    this.initialValue,
     required this.hintText,
     required this.onChanged,
   });
@@ -17,6 +19,7 @@ class TextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initialValue,
       decoration: InputDecoration(
         alignLabelWithHint: true,
         labelText: hintText,

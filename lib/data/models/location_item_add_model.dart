@@ -2,15 +2,15 @@ import 'package:pinpoint/domain/entities/location_point.dart';
 
 class LocationItemAddModel {
   final String? name;
-  final double innerRadius;
-  final double outerRadius;
+  final double? innerRadius;
+  final double? outerRadius;
   final List<LocationPoint> points;
 
   LocationItemAddModel({
     String? id,
     this.name,
-    this.innerRadius = 0,
-    this.outerRadius = 0,
+    this.innerRadius,
+    this.outerRadius,
     required this.points,
   });
 
